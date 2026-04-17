@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="style_angebote.css">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">
+        <img id="logo_img" src="logo.png" alt="Logo">
+    </div>
+
+    <nav>
+        <a href="index.html">Start</a>
+
+        <div class="dropdown">
+            <a href="#">Leistungen</a>
+            <div class="dropdown-content">
+                <a href="angebote_1.html">Fortbildung</a>
+                <a href="angebote_2.html">Teamreflexion</a>
+                <a href="">Einzelberatung</a>
+                <a href="angebote_3.html">Fachkräfte</a>
+                <a href="angebote_4.html">Privat</a>
+            </div>
+        </div>
+
+        <a href="ueber_mich.html">Über&nbsp;Mich</a>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+
+    <div class="right">
+        <div class="contact_img">
+            <img id="mail_img" src="mail.png" alt="Mail">
+        </div>
+        <div class="contact_img">
+            <img id="phone_img" src="phone.png" alt="Phone">
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" style="background-image: url('angebote_3_background.jpg');">
+    <div class="custom-section-wrapper">
+        <div class="banner-overlay">
+            <h2 class="banner-title">Einzelberatung für Fachkräfte</h2>
+        </div>
+    </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+    <p>
+        Die Einzelberatung bietet einen geschützten Rahmen für individuelle Fragestellungen und Orientierungsprozesse. Je nach Ausgangslage richtet sich das Angebot an Fachkräfte im beruflichen Kontext oder an Privatpersonen mit persönlichen Problemlagen und Klärungsbedarf.    </p>
+</section>
+
+<!-- EINZELPERSONEN -->
+<section class="info-section">
+    <div class="info-container">
+        <div class="column" id="column1">
+            <h2>Einzelberatung für Fachkräfte</h2>
+            <p>
+                Die Einzelberatung für Fachkräfte richtet sich an Personen aus dem Gesundheits- und Sozialwesen, die berufliche Situationen reflektieren, Entscheidungen klären oder ihre professionelle Rolle weiterentwickeln möchten.
+                Sie unterstützt dabei, komplexe Fallkonstellationen einzuordnen, mit Belastungen umzugehen und Handlungssicherheit im Arbeitsalltag zu stärken.
+            </p>
+        </div>
+    </div>
+</section>
+
+<div class="custom-section-wrapper">
+    <section class="content-method-section">
+        <div class="inner-container">
+            <div class="content-block">
+                <h2>Inhalte</h2>
+                <ul class="nested-list">
+                    <li>Reflexion konkreter beruflicher Situationen und Fälle</li>
+                    <li>Klärung von Rollen, Verantwortung und professioneller Haltung</li>
+                    <li>Umgang mit Belastung, Ambivalenz und Entscheidungsdilemmata</li>
+                    <li> Abgrenzung zwischen persönlicher Betroffenheit und professionellem Handeln</li>
+                    <li>Entwicklung realistischer Handlungsoptionen im gegebenen Rahmen</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="frame-section">
+        <div class="inner-container">
+            <h2>Rahmen</h2>
+            <div class="frame-details">
+                <p>Format: Einzelberatung nach Vereinbarung</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- KONTAKT -->
+<section class="kontakt">
+    <h2>Kontakt</h2>
+    <p>Ist eines meiner Angebote interessant für Sie oder haben Sie Fragen?</p>
+    <a href="kontakt.html"><button class="btn">Kontaktieren Sie mich</button></a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>Impressum | Datenschutz</p>
+</footer>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdownLink = document.querySelector('.dropdown > a');
+        const dropdownContent = document.querySelector('.dropdown-content');
+        console.log(dropdownContent);
+        if (dropdownLink) {
+            dropdownLink.addEventListener('click', function(e) {
+                // Wir prüfen, ob wir im mobilen Modus sind
+                if (window.innerWidth <= 1000) {
+                    e.preventDefault(); // Verhindert das Neuladen/Springen
+                    e.stopPropagation(); // Verhindert, dass der Klick direkt wieder durch window.onclick geschlossen wird
+                    dropdownContent.classList.toggle('show');
+                }
+            });
+        }
+
+        // Schließen, wenn man irgendwo anders hinklickt
+        window.addEventListener('click', function(event) {
+            if (dropdownContent && dropdownContent.classList.contains('show')) {
+                if (!event.target.closest('.dropdown')) {
+                    dropdownContent.classList.remove('show');
+                }
+            }
+        });
+    });
+</script>
+</html>

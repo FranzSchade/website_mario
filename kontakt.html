@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="style_angebote.css">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">
+        <img id="logo_img" src="logo.png" alt="Logo">
+    </div>
+
+    <nav>
+        <a href="index.html">Start</a>
+
+        <div class="dropdown">
+            <a href="#">Leistungen</a>
+            <div class="dropdown-content">
+                <a href="angebote_1.html">Fortbildung</a>
+                <a href="angebote_2.html">Teamreflexion</a>
+                <a href="">Einzelberatung</a>
+                <a href="angebote_3.html">Fachkräfte</a>
+                <a href="angebote_4.html">Privat</a>
+            </div>
+        </div>
+
+        <a href="ueber_mich.html">Über&nbsp;Mich</a>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+
+    <div class="right">
+        <div class="contact_img">
+            <img id="mail_img" src="mail.png" alt="Mail">
+        </div>
+        <div class="contact_img">
+            <img id="phone_img" src="phone.png" alt="Phone">
+        </div>
+    </div>
+</header>
+
+<div class="custom-section-wrapper">
+    <section class="content-method-section">
+        <div class="inner-container">
+            <div class="content-block">
+                <h2>Kontakt</h2>
+                <p>
+                Kein Therapieplatz – was tun? <br>
+                Viele Menschen erleben aktuell, dass sie trotz belastender Situationen keinen psychotherapeutischen Behandlungsplatz finden. Lange Wartezeiten, fehlende Rückmeldungen und Unsicherheit darüber, wie es in der Zwischenzeit weitergehen soll, sind dabei keine Seltenheit.
+                </p><p>
+                Wenn Sie sich in dieser Situation befinden, bedeutet das nicht, dass Sie ohne Unterstützung bleiben müssen.
+                </p>
+            </div>
+
+            <div class="content-block">
+                <h2>Orientierung gewinnen – auch ohne Therapieplatz</h2>
+                <p>
+                Nicht jede belastende Lebenssituation erfordert sofort eine Psychotherapie. Häufig ist zunächst eine fachliche Einordnung hilfreich, um die eigene Situation besser zu verstehen, Belastungen einzuordnen und sinnvolle nächste Schritte zu klären.
+                </p><p>
+                Eine psychosoziale Beratung kann dabei unterstützen, Orientierung zu gewinnen – unabhängig von Diagnosen oder Krankenkassenstrukturen.
+                </p>
+                <br>
+                <p>
+                    <b>
+                        Beratung ohne Krankenkasse, Diagnose oder lange Wartezeit
+                        Ich biete psychosoziale Einzelberatung außerhalb des Krankenkassen- und Diagnosesystems an.
+                    </b>
+                </p>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<section class="info-section">
+    <div class="info-container">
+        <div class="column contact_column">
+            <h2>Die Beratung ist:</h2>
+
+            <ul>
+                <li>Zeitnah möglich</li>
+                <li>Vertraulich und unverbindlich</li>
+                <li>Ohne formale Diagnosestellung</li>
+                <li>Ohne Akteneinträge oder versicherungsrechtliche Folgen</li>
+            </ul>
+            <br>
+            <p>
+                Im Mittelpunkt steht eine professionelle Einschätzung Ihrer Situation sowie die gemeinsame Klärung, welche Formen der Unterstützung aktuell sinnvoll sein können.
+
+            </p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="column contact_column">
+            <h2>Was psychosoziale Beratung leisten kann</h2>
+            <ul class="goals-list">
+                <li>Eine Beratung kann unter anderem helfen,</li>
+                <li>die eigene Situation fachlich einzuordnen</li>
+                <li>Belastungen und Unsicherheiten besser zu verstehen</li>
+                <li>Entscheidungen vorzubereiten</li>
+                <li>Orientierung im psychosozialen Hilfesystem zu gewinnen</li>
+                <li>Mögliche weitere Schritte realistisch abzuwägen</li>
+            </ul>
+            <br>
+            <p>
+                Gerade in Zeiten langer Wartezeiten auf psychotherapeutische Behandlungsplätze kann eine solche Beratung entlastend wirken und Klarheit schaffen.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="kontakt">
+    <h2>Kontakt</h2>
+    <p>Email:</p>
+    <p>Telefon: + 49 1741806694</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>Impressum | Datenschutz</p>
+</footer>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdownLink = document.querySelector('.dropdown > a');
+        const dropdownContent = document.querySelector('.dropdown-content');
+        console.log(dropdownContent);
+        if (dropdownLink) {
+            dropdownLink.addEventListener('click', function(e) {
+                // Wir prüfen, ob wir im mobilen Modus sind
+                if (window.innerWidth <= 1000) {
+                    e.preventDefault(); // Verhindert das Neuladen/Springen
+                    e.stopPropagation(); // Verhindert, dass der Klick direkt wieder durch window.onclick geschlossen wird
+                    dropdownContent.classList.toggle('show');
+                }
+            });
+        }
+
+        // Schließen, wenn man irgendwo anders hinklickt
+        window.addEventListener('click', function(event) {
+            if (dropdownContent && dropdownContent.classList.contains('show')) {
+                if (!event.target.closest('.dropdown')) {
+                    dropdownContent.classList.remove('show');
+                }
+            }
+        });
+    });
+</script>
+</html>

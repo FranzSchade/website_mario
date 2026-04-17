@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="style_angebote.css">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">
+        <img id="logo_img" src="logo.png" alt="Logo">
+    </div>
+
+    <nav>
+        <a href="index.html">Start</a>
+
+        <div class="dropdown">
+            <a href="#">Leistungen</a>
+            <div class="dropdown-content">
+                <a href="angebote_1.html">Fortbildung</a>
+                <a href="angebote_2.html">Teamreflexion</a>
+                <a href="">Einzelberatung</a>
+                <a href="angebote_3.html">Fachkräfte</a>
+                <a href="angebote_4.html">Privat</a>
+            </div>
+        </div>
+
+        <a href="ueber_mich.html">Über&nbsp;Mich</a>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+
+    <div class="right">
+        <div class="contact_img">
+            <img id="mail_img" src="mail.png" alt="Mail">
+        </div>
+        <div class="contact_img">
+            <img id="phone_img" src="phone.png" alt="Phone">
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" style="background-image: url('angebote_2_background.jpg');">
+    <div class="custom-section-wrapper">
+        <div class="banner-overlay">
+            <span class="banner-subtitle">Aktuell angebotene Fortbildung</span>
+            <h2 class="banner-title">Teamreflexion</h2>
+        </div>
+    </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+    <p>
+        Teams im Gesundheits- und Sozialwesen arbeiten häufig unter hohem fachlichen, strukturellen und emotionalen Druck. Komplexe Fallkonstellationen, unklare Zuständigkeiten, institutionelle Vorgaben und widersprüchliche Erwartungen können die Zusammenarbeit belasten und zu Unsicherheit im professionellen Handeln führen.
+        <br>Die psychosoziale Fachberatung und Teamreflexion bietet einen strukturierten Rahmen, um berufliche Fragestellungen gemeinsam zu bearbeiten, fachliche Perspektiven zu klären und die Zusammenarbeit im Team zu stärken. Im Mittelpunkt stehen die Reflexion des Arbeitsalltags, der professionelle Umgang mit Belastungen sowie die Entwicklung tragfähiger Haltungen und Handlungsoptionen.
+    </p>
+</section>
+
+<!-- EINZELPERSONEN -->
+<section class="info-section">
+    <div class="info-container">
+        <div class="column" id="column1">
+            <h2>Zielgruppe</h2>
+            <p>Die Fortbildung richtet sich an Fachkräfte und Teams aus:</p>
+            <ul>
+                <li>Gesundheits-, Sozial- und Pflegeberufen</li>
+                <li>Ambulanten und stationären Einrichtungen</li>
+                <li>Therapeutischen, psychosozialen und multiprofessionellen Arbeitskontexten</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<div class="custom-section-wrapper">
+    <section class="content-method-section">
+        <div class="inner-container">
+            <div class="content-block">
+                <h2>Inhalte</h2>
+                <ul class="nested-list">
+                    <li>Reflexion konkreter Fälle und Arbeitssituationen</li>
+                    <li>Klärung von Rollen, Zuständigkeiten und professioneller Verantwortung</li>
+                    <li>Umgang mit Belastung, Überforderung und emotionaler Inanspruchnahme</li>
+                    <li>Dynamiken im Team und im Kontakt mit Klienten und Patienten 
+                    <li>Spannungsfelder zwischen fachlichem Anspruch, institutionellen Rahmenbedingungen und Realität</li>
+                    <li>Stärkung von Handlungssicherheit und professioneller Haltung</li>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="method-block">
+                <h2>Methodik</h2>
+                <p>Fachlicher Input mit hohem Praxisbezug</p>
+                <p>Interaktive Diskussion und gemeinsamer Austausch</p>
+                <p>Einbindung von Fallbeispielen aus dem Arbeitsalltag der Teilnehmenden</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="frame-section">
+        <div class="inner-container">
+            <h2>Rahmen</h2>
+            <div class="frame-details">
+                <p>Dauer: 4 Stunden (auch als Team- oder Inhouse-Format möglich)</p>
+                <p>Teilnehmende: empfohlen bis ca. 15–20 Personen</p>
+                <p>Ort: vor Ort oder online</p>
+                <p>Kosten: auf Anfrage</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- KONTAKT -->
+<section class="kontakt">
+    <h2>Kontakt</h2>
+    <p>Ist eines meiner Angebote interessant für Sie oder haben Sie Fragen?</p>
+    <a href="kontakt.html"><button class="btn">Kontaktieren Sie mich</button></a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>Impressum | Datenschutz</p>
+</footer>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdownLink = document.querySelector('.dropdown > a');
+        const dropdownContent = document.querySelector('.dropdown-content');
+        console.log(dropdownContent);
+        if (dropdownLink) {
+            dropdownLink.addEventListener('click', function(e) {
+                // Wir prüfen, ob wir im mobilen Modus sind
+                if (window.innerWidth <= 1000) {
+                    e.preventDefault(); // Verhindert das Neuladen/Springen
+                    e.stopPropagation(); // Verhindert, dass der Klick direkt wieder durch window.onclick geschlossen wird
+                    dropdownContent.classList.toggle('show');
+                }
+            });
+        }
+
+        // Schließen, wenn man irgendwo anders hinklickt
+        window.addEventListener('click', function(event) {
+            if (dropdownContent && dropdownContent.classList.contains('show')) {
+                if (!event.target.closest('.dropdown')) {
+                    dropdownContent.classList.remove('show');
+                }
+            }
+        });
+    });
+</script>
+</html>

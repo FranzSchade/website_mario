@@ -1,0 +1,656 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter;
+}
+
+body {
+    line-height: 1.6;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-right: 1.5rem;
+    padding-left: 1rem;
+    background: #ffff;
+}
+.right {
+    margin-left: 0.2rem;
+    display: flex;
+    gap: 15px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 10px;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
+    display: block;
+}
+
+/* Dropdown Box */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 0;
+    background-color: #3f676b; /* dunkles petrol */
+    min-width: 220px;
+    padding: 15px 0;
+
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Links */
+.dropdown-content a {
+    display: block;
+    color: white;
+    text-decoration: none;
+
+    padding: 10px 20px;
+    font-size: 1.2rem;
+}
+
+/* Trenner zwischen den Punkten */
+.dropdown-content a:nth-child(1),
+.dropdown-content a:nth-child(2) {
+    border-bottom: none;
+}
+
+/* Wir erstellen eine Linie für die ersten drei Punkte (nach Fortbildung, Teamreflexion, Einzelberatung) */
+/* 2. Trenner über Border-Bottom lösen */
+.dropdown-content a:nth-child(1),
+.dropdown-content a:nth-child(2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+    margin: 0 15px !important;
+    padding-left: 5px !important;
+    padding-bottom: 17px !important; /* ← gibt der Linie etwas Luft nach unten */
+}
+
+/* Hover Effekt */
+.dropdown-content a:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* Anzeigen */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* --- 2. EINRÜCKUNG (Fachkräfte & Privat) --- */
+/* Das 3. Element komplett neutralisieren */
+.dropdown-content a:nth-child(3) {
+    pointer-events: none;    /* Macht den Link unklickbar */
+    cursor: default;         /* Verhindert den Zeigefinger-Cursor */
+    background-color: transparent !important; /* Kein Farbwechsel möglich */
+
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-left: 5px;
+}
+
+/* Verhindert, dass die animierte Hover-Linie erscheint */
+.dropdown-content a:nth-child(3)::after {
+    display: none !important;
+}
+/* Wir rücken den 4. und 5. Link ein */
+.dropdown-content a:nth-child(4),
+.dropdown-content a:nth-child(5) {
+    padding-left: 40px; /* Erhöhtes Padding für den Einrück-Effekt */
+    font-size: 1.1rem;   /* Optional: Etwas kleiner, um Hierarchie zu zeigen */
+    opacity: 0.9;
+}
+
+/* Hover Effekt bleibt gleich */
+.dropdown-content a:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* Am PC: Hover funktioniert normal */
+@media (min-width: 851px) {
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+}
+
+/* Diese Klasse wird vom JavaScript gesteuert */
+.dropdown-content.show {
+    display: block !important;
+}
+
+@media (max-width: 850px) {
+    .dropdown-content {
+        position: relative; /* Schiebt auf dem Handy die anderen Links nach unten */
+        width: 100%;
+        box-shadow: none;
+        background-color: #3f676b;
+    }
+}
+
+/* Verhindert, dass die Trennlinie im Dropdown beim Hovern wächst */
+.dropdown-content a:hover::after {
+    width: 80% !important; /* Bleibt bei der ursprünglichen Breite */
+    left: 10% !important;  /* Bleibt zentriert */
+}
+
+/* Falls du die allgemeine Underline-Animation der Haupt-Navi im Dropdown ganz abschalten willst */
+.dropdown-content a::after {
+    transition: none !important; /* Entfernt das "Sliden" beim Drüberfahren */
+}
+
+
+
+#mail_img,
+#phone_img {
+    width: 60%;
+    height: auto;
+}
+
+.contact_img {
+    width: clamp(40px, 5vw, 80px);
+    aspect-ratio: 1 / 1;
+
+    background-color: #3b82f6;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo_img {
+    width: 18rem;
+    height: 8rem;
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #dbeafe;
+}
+
+#portrait_large {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+
+}
+
+.navbar nav a {
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.5rem;
+    margin-left: 20px;
+}
+
+
+/* Linie */
+.navbar nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+
+    width: 0;
+    height: 2px;
+    background-color: #739f84;
+
+    transition: width 0.3s ease;
+}
+
+.navbar nav a:hover::after {
+    width: 100%;
+}
+
+/* HERO */
+.hero {
+    height: 400px;
+    background: url('https://picsum.photos/1200/600') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.hero button {
+    margin-top: 20px;
+    padding: 12px 28px;
+
+    background-color: #6e9b7a;
+    color: white;
+
+    border: none;
+    border-radius: 999px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effekt */
+.hero button:hover {
+    background-color: #5a8265;
+    transform: translateY(-2px);
+}
+
+/* Klick Effekt */
+.hero button:active {
+    transform: translateY(0);
+}
+
+/* INTRO */
+.intro {
+    padding: 40px;
+    text-align: center;
+    background: #ffff;
+}
+
+/* ANGEBOTE */
+.angebote {
+    background: #739f84;
+    color: white;
+    padding: 60px 40px;
+}
+
+#angebote_headline {
+    text-align: center;
+    color: #739f84;
+    margin-bottom: 1rem;
+}
+
+.angebote-container {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* LINKER BLOCK */
+.angebote-left {
+    width: 45%;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.angebote-left h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.angebote-left p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* TRENNLINIE */
+.divider {
+    width: 4px;
+    background: rgba(255,255,255,0.7);
+    height: 30rem;
+}
+
+/* RECHTER BLOCK */
+.angebote-right {
+    width: 45%;
+}
+
+.angebote-right h3 {
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.angebote-right ul {
+    margin: 10px 0 15px 15px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* BUTTON */
+.btn {
+    display: block;
+    margin: 40px auto 0;
+    padding: 12px 30px;
+    width: 20rem;
+    background: #ffff;
+    color: #739f84;
+    font-size: 1rem;
+    border: none;
+    border-radius: 999px;
+
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* EINZEL */
+.einzel {
+    display: flex;
+    gap: 40px;
+    padding: 40px;
+}
+
+/* ABOUT */
+
+#einzel_divider {
+    background: #70AC8F;
+    height: 14rem;
+}
+
+#einzel_button {
+    background: #70AC8F;
+    color: #ffff;
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+/* ABOUT */
+
+.about-section {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 10vh;
+    background: rgba(112, 172, 143, 0.25);
+}
+
+.about-container {
+    max-width: 1000px;
+    width: 100%;
+}
+
+.about-content-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* Textgestaltung */
+.about-text-content {
+    flex: 1;
+    text-align: center;
+}
+
+.about-text-content h1 {
+    color: #618b76;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.about-text-content p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+/* Bildgestaltung */
+.about-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-pic {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+
+/* TESTIMONIAL */
+.testimonial {
+    padding: 40px;
+    text-align: center;
+    background: #E3E3D9;
+    color: #336972;
+}
+
+/* KONTAKT */
+.kontakt {
+    background: #336972;
+    color: white;
+    text-align: center;
+    padding: 40px;
+}
+
+.kontakt button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    color: #336972
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #336972E5;
+    color: white;
+}
+
+/* Container-Design */
+.info-section {
+    background-color: #76a084;
+    color: white;
+    padding: 60px 40px;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.info-container {
+    max-width: 1100px;
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+/* Spalten-Eigenschaften */
+.column {
+    flex: 1;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+p {
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+/* Listen-Styling */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Die weißen Aufzählungspunkte nachbauen */
+li::before {
+    text-align: center;
+    content: "•";
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+/* Die vertikale Trennlinie */
+.divider {
+    width: 4px;
+    background-color: white;
+    align-self: stretch;
+    opacity: 0.9;
+}
+
+/* Responsive Anpassung für Mobilgeräte */
+@media (max-width: 850px) {
+    .info-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .divider {
+        width: 100%;
+        height: 2px;
+        margin: 20px 0;
+    }
+}
+
+/* --- Styling für Inhalte & Methodik --- */
+.custom-section-wrapper .content-method-section {
+    background-color: #ffffff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.custom-section-wrapper .content-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.custom-section-wrapper .nested-list {
+    text-align: center;
+}
+
+.custom-section-wrapper .inner-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.custom-section-wrapper .content-block h2,
+.custom-section-wrapper .method-block h2 {
+    color: #618b76;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.custom-section-wrapper .subtitle {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: normal;
+    opacity: 0.8;
+}
+
+/* Verschachtelte Liste für die Inhalte */
+.custom-section-wrapper .nested-list {
+    list-style: none;
+    padding: 0;
+    display: inline-block;
+    text-align: center;
+}
+
+.custom-section-wrapper .nested-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.custom-section-wrapper .nested-list li::before {
+    content: "•";
+    font-weight: bold;
+}
+
+/* Zweite Ebene der Liste */
+.custom-section-wrapper .nested-list ul {
+    list-style: none;
+    padding-left: 30px;
+    margin-top: 5px;
+}
+
+.custom-section-wrapper .method-block {
+    margin-top: 50px;
+}
+
+.custom-section-wrapper .method-block p {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* --- Rahmen-Block (Grün) --- */
+.custom-section-wrapper .frame-section {
+    background-color: #76a084;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.custom-section-wrapper .frame-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+}
+
+.custom-section-wrapper .frame-details p {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* Responsive Korrekturen */
+@media (max-width: 600px) {
+    .custom-section-wrapper .nested-list {
+        display: block;
+        padding: 0 10px;
+    }
+}
+
+.banner-overlay {
+    margin-top: 10rem;
+    background: #336972E5;
+}
+
+#column1 {
+    text-align: center;
+}
+.contact_column {
+    flex: 1;
+    text-align: center;
+}
+
+.kontakt .btn {
+    transition: all 0.3s ease;
+}
+
+.kontakt .btn:hover {
+    transform: translateY(-2px);
+}

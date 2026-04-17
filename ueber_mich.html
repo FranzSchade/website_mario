@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="style_angebote.css">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">
+        <img id="logo_img" src="logo.png" alt="Logo">
+    </div>
+
+    <nav>
+        <a href="index.html">Start</a>
+
+        <div class="dropdown">
+            <a href="#">Leistungen</a>
+            <div class="dropdown-content">
+                <a href="#">Fortbildung</a>
+                <a href="#">Teamreflexion</a>
+                <a href="#">Einzelberatung</a>
+                <a href="#">Fachkräfte</a>
+                <a href="#">Privat</a>
+            </div>
+        </div>
+
+        <a href="ueber_mich.html">Über&nbsp;Mich</a>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+
+    <div class="right">
+        <div class="contact_img">
+            <img id="mail_img" src="mail.png" alt="Mail">
+        </div>
+        <div class="contact_img">
+            <img id="phone_img" src="phone.png" alt="Phone">
+        </div>
+    </div>
+</header>
+
+<section class="hero-image">
+    <img id="portrait_large" src="portrait_large.png" alt="Portrait"/>
+</section>
+
+<div class="custom-section-wrapper">
+    <section class="content-method-section">
+        <div class="inner-container">
+            <div class="content-block">
+                <h2>Über Mich</h2>
+                <p>
+                Ich arbeite als Sozialarbeiter (B.A.) mit über 15 Jahren Erfahrung in unterschiedlichen Bereichen der psychosozialen Versorgung. Mein beruflicher Schwerpunkt liegt in der Arbeit mit komplexen Problemlagen, insbesondere an den Schnittstellen von Sucht, psychischer Erkrankung und psychosozialer Begleitung.
+                </p>
+                <p>
+                Im Laufe meiner Tätigkeit habe ich in verschiedenen Settings gearbeitet – unter anderem in der Eingliederungshilfe, in suchttherapeutischen und klinischen Kontexten sowie in der Arbeit mit Kindern, Jugendlichen und Erwachsenen. Diese Erfahrungen prägen meine fachliche Perspektive ebenso wie mein Verständnis für die strukturellen und institutionellen Herausforderungen psychosozialer Arbeit.
+                </p>
+                <p>
+                In meiner Arbeit verbinde ich fachliche Einordnung mit einer klaren, realistischen Haltung. Mir geht es darum, Situationen verständlich zu machen, Handlungsspielräume aufzuzeigen und Orientierung zu geben – sowohl für Fachkräfte und Teams als auch für Einzelpersonen, die Unterstützung suchen. Dabei stehen Professionalität, Transparenz und eine respektvolle Zusammenarbeit auf Augenhöhe im Vordergrund.
+                </p>
+                <p>
+                Meine Angebote richten sich an Menschen, die komplexe Fragestellungen klären, Entscheidungen vorbereiten oder ihre berufliche oder persönliche Situation reflektieren möchten. Ich arbeite praxisnah, strukturiert und mit Blick auf das, was im jeweiligen Kontext tatsächlich umsetzbar ist.
+                </p>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- KONTAKT -->
+<section class="kontakt">
+    <h2>Kontakt</h2>
+    <p>Ist eines meiner Angebote interessant für Sie oder haben Sie Fragen?</p>
+    <a href="kontakt.html"><button class="btn">Kontaktieren Sie mich</button></a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>Impressum | Datenschutz</p>
+</footer>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdownLink = document.querySelector('.dropdown > a');
+        const dropdownContent = document.querySelector('.dropdown-content');
+        console.log(dropdownContent);
+        if (dropdownLink) {
+            dropdownLink.addEventListener('click', function(e) {
+                // Wir prüfen, ob wir im mobilen Modus sind
+                if (window.innerWidth <= 1000) {
+                    e.preventDefault(); // Verhindert das Neuladen/Springen
+                    e.stopPropagation(); // Verhindert, dass der Klick direkt wieder durch window.onclick geschlossen wird
+                    dropdownContent.classList.toggle('show');
+                }
+            });
+        }
+
+        // Schließen, wenn man irgendwo anders hinklickt
+        window.addEventListener('click', function(event) {
+            if (dropdownContent && dropdownContent.classList.contains('show')) {
+                if (!event.target.closest('.dropdown')) {
+                    dropdownContent.classList.remove('show');
+                }
+            }
+        });
+    });
+</script>
+</html>
