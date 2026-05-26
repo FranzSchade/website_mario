@@ -7,6 +7,7 @@
 
 body {
     line-height: 1.6;
+
 }
 
 /* NAVBAR */
@@ -180,10 +181,6 @@ body {
 
 /* --- 2. EINRÜCKUNG (Fachkräfte & Privat) --- */
 .dropdown-content a:nth-child(3) {
-    pointer-events: none;    /* Macht den Link unklickbar */
-    cursor: default;         /* Verhindert den Zeigefinger-Cursor */
-    background-color: transparent !important; /* Kein Farbwechsel möglich */
-
     margin-left: 15px;
     margin-right: 15px;
     padding-left: 5px;
@@ -230,7 +227,6 @@ body {
     border: none;
     border-radius: 999px;
 
-    font-size: 14px;
     font-weight: 500;
 
     cursor: pointer;
@@ -259,6 +255,10 @@ body {
 .angebote {
     background: #739f84;
     color: white;
+    padding: 60px 40px;
+}
+
+.angebote_white {
     padding: 60px 40px;
 }
 
@@ -294,16 +294,10 @@ body {
 }
 
 .angebote-left p {
-    font-size: 14px;
     line-height: 1.6;
 }
 
 /* TRENNLINIE */
-.divider {
-    width: 4px;
-    background: rgba(255,255,255,0.7);
-    height: 30rem;
-}
 
 /* RECHTER BLOCK */
 .angebote-right {
@@ -317,7 +311,6 @@ body {
 
 .angebote-right ul {
     margin: 10px 0 15px 15px;
-    font-size: 14px;
     line-height: 1.6;
 }
 
@@ -342,19 +335,20 @@ body {
     display: flex;
     gap: 40px;
     padding: 40px;
+    background: #739f84;
+    color: white;
 }
 
 /* ABOUT */
 
 #einzel_divider {
     background: #70AC8F;
-    height: 14rem;
 }
 
 #einzel_button {
     background: #70AC8F;
     color: #ffff;
-    margin-top: 0;
+    margin-top: 40px;
     margin-bottom: 2rem;
 }
 
@@ -516,8 +510,7 @@ li::before {
     }
 
     .divider {
-        width: 100%;
-        height: 2px;
+        width: 2px;
         margin: 20px 0;
     }
 }
