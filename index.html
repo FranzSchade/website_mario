@@ -39,7 +39,7 @@
     <div class="hero-text">
         <h1>Mario Sobotka</h1>
         <p>Psychosoziale Fachberatung | Fortbildungen | Teamreflexion</p>
-        <a href="kontakt.html">Termin anfragen</a>
+        <a href="kontakt.html"><button class="btn" id="termin_btn">Termin anfragen</button></a>
     </div>
 </section>
 
@@ -172,9 +172,24 @@
 <!-- TESTIMONIAL -->
 <section class="testimonial">
     <h2>Was meine Kund*innen sagen</h2>
-    <p>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    </p>
+
+    <div class="testimonial-box">
+
+        <button class="arrow" id="prevBtn">&#10094;</button>
+
+        <div class="testimonial-content">
+
+            <div id="stars"></div>
+
+            <p id="testimonialText"></p>
+
+            <h4 id="testimonialAuthor"></h4>
+
+        </div>
+
+        <button class="arrow" id="nextBtn">&#10095;</button>
+
+    </div>
 </section>
 
 <!-- KONTAKT -->
@@ -215,5 +230,54 @@
             }
         });
     });
+
+    fetch('bewertungen.json')
+        .then(response => response.json())
+        .then(testimonials => {
+
+            let currentTestimonial = 0;
+
+            const textElement = document.getElementById("testimonialText");
+            const authorElement = document.getElementById("testimonialAuthor");
+            const starsElement = document.getElementById("stars");
+
+            function showTestimonial(index) {
+
+                textElement.textContent = testimonials[index].text;
+                authorElement.textContent = testimonials[index].author;
+
+                let stars = "";
+
+                for (let i = 0; i < testimonials[index].stars; i++) {
+                    stars += "★";
+                }
+
+                starsElement.textContent = stars;
+            }
+
+            document.getElementById("nextBtn").addEventListener("click", () => {
+
+                currentTestimonial++;
+
+                if (currentTestimonial >= testimonials.length) {
+                    currentTestimonial = 0;
+                }
+
+                showTestimonial(currentTestimonial);
+            });
+
+            document.getElementById("prevBtn").addEventListener("click", () => {
+
+                currentTestimonial--;
+
+                if (currentTestimonial < 0) {
+                    currentTestimonial = testimonials.length - 1;
+                }
+
+                showTestimonial(currentTestimonial);
+            });
+
+            showTestimonial(currentTestimonial);
+        });
 </script>
 </html>

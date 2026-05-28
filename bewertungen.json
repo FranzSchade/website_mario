@@ -1,0 +1,17 @@
+[
+  {
+    "text": "Schöne Website",
+    "author": "Max Mustermann",
+    "stars": 5
+  },
+  {
+    "text": "Kompetente Beratung",
+    "author": "Maria Mustermann",
+    "stars": 5
+  },
+  {
+    "text": "Nice",
+    "author": "John Doe",
+    "stars": 4
+  }
+]

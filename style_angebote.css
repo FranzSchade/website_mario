@@ -468,7 +468,11 @@ footer {
 
 .info-container {
     max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+
     display: flex;
+    justify-content: center;
     align-items: stretch;
     gap: 40px;
 }
@@ -485,6 +489,12 @@ footer {
 /* Spalten-Eigenschaften */
 .column {
     flex: 1;
+    text-align: center;
+}
+
+.column ul {
+    display: inline-block;
+    text-align: left;
 }
 
 h2 {
@@ -583,9 +593,7 @@ li::before {
     margin-right: 5rem;
 }
 
-#headline_1 {
-    margin-left: 5rem;
-}
+
 
 /* Verschachtelte Liste für die Inhalte */
 .custom-section-wrapper .nested-list {
@@ -653,9 +661,7 @@ li::before {
     background: #336972E5;
 }
 
-#column1 {
-    text-align: left;
-}
+
 
 #einzelberatung_fk {
     background-color: #76a084;

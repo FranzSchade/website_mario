@@ -142,6 +142,10 @@ body {
     font-size: 1.2rem;
 }
 
+#termin_btn {
+    background-color: white;
+    color: #76a084;
+}
 
 /* Wir erstellen eine Linie für die ersten drei Punkte (nach Fortbildung, Teamreflexion, Einzelberatung) */
 /* 2. Trenner über Border-Bottom lösen */
@@ -521,4 +525,46 @@ li::before {
 
 .kontakt .btn:hover {
     transform: translateY(-2px);
+}
+
+.testimonial-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
+    max-width: 900px;
+    margin: 40px auto 0;
+}
+
+.testimonial-content {
+    max-width: 650px;
+}
+
+.testimonial-content p {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin: 20px 0;
+}
+
+.testimonial-content h4 {
+    font-weight: 600;
+}
+
+.arrow {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #336972;
+    transition: transform 0.2s ease;
+}
+
+.arrow:hover {
+    transform: scale(1.2);
+}
+
+#stars {
+    font-size: 1.8rem;
+    color: #e0b100;
 }
