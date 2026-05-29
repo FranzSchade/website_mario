@@ -75,7 +75,7 @@ body {
 }
 
 #logo_img {
-    width: 18rem;
+    width: 20.7rem;
     height: 8rem;
 }
 
@@ -300,16 +300,28 @@ footer {
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
-.angebote-left h2 {
+.angebote-left a,
+.angebote-right a {
+    margin-top: auto;
+}
+
+
+
+.angebote-left h2,
+.angebote-right h2 {
+    min-height: 4.5rem;
     font-size: 24px;
     margin-bottom: 20px;
+    text-align: center;
 }
+
+
 
 .angebote-left p {
     line-height: 1.6;
+    text-align: left;
 }
 
 /* TRENNLINIE */
@@ -337,6 +349,21 @@ footer {
     width: 20rem;
     background: #ffff;
     color: #739f84;
+    font-size: 1rem;
+    border: none;
+    border-radius: 999px;
+
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.green-btn {
+    display: block;
+    margin: 40px auto 0;
+    padding: 12px 30px;
+    width: 20rem;
+    color: #ffff;
+    background: #739f84;
     font-size: 1rem;
     border: none;
     border-radius: 999px;

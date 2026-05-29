@@ -173,7 +173,7 @@ body {
 }
 
 #logo_img {
-    width: 18rem;
+    width: 20.7rem;
     height: 8rem;
 }
 
@@ -300,9 +300,17 @@ body {
     justify-content: center;
 }
 
-.angebote-left h2 {
+.contact_column a {
+    margin-top: auto;
+}
+
+
+
+.contact_column h2 {
+    min-height: 4.5rem;
     font-size: 24px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .angebote-left p {
@@ -443,6 +451,10 @@ body {
     padding: 40px;
 }
 
+.kontakt p {
+    text-align: center;
+}
+
 .kontakt button {
     margin-top: 10px;
     padding: 10px 20px;
@@ -470,9 +482,8 @@ footer {
     max-width: 1100px;
     width: 100%;
     margin: 0 auto;
-
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Zentriert die Spalte horizontal */
     align-items: stretch;
     gap: 40px;
 }
@@ -487,13 +498,21 @@ footer {
 }
 
 /* Spalten-Eigenschaften */
-.column {
-    flex: 1;
-    text-align: center;
+.column#column1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Zentriert die Überschrift und den Listen-Block */
+    width: 100%;
+}
+
+.column#column1 > p {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 15px auto; /* Zentriert den Textblock und gibt 15px Abstand nach unten */
+    text-align: left;         /* Text selbst bleibt linksbündig */
 }
 
 .column ul {
-    display: inline-block;
     text-align: left;
 }
 
@@ -506,7 +525,7 @@ h2 {
 p {
     margin-bottom: 15px;
     font-weight: 500;
-    text-align: center;
+    text-align: left;
 }
 
 /* Listen-Styling */
@@ -559,14 +578,12 @@ li::before {
     text-align: center;
 }
 
-.custom-section-wrapper .content-block {
+.custom-section-wrapper .content-block,
+.custom-section-wrapper .method-block {
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-
-.custom-section-wrapper .nested-list {
-    text-align: center;
+    align-items: center; /* Zentriert Überschrift und Listen-Block */
+    width: 100%;
 }
 
 .custom-section-wrapper .inner-container {
@@ -588,29 +605,41 @@ li::before {
     opacity: 0.8;
 }
 
-.nested-list {
-    margin-left: 8rem;
-    margin-right: 5rem;
-}
+
 
 
 
 /* Verschachtelte Liste für die Inhalte */
+#nested-list-special,
 .custom-section-wrapper .nested-list {
     list-style: none;
     padding: 0;
-    text-align: left;
+    text-align: left;       /* Der Text innerhalb der Liste ist linksbündig */
+
+    /* WICHTIG: Diese Box-Breite sorgt dafür, dass alle drei Listen
+       exakt die gleiche Breite haben und perfekt untereinander bündig stehen */
+    width: 100%;
+    max-width: 600px;
+
+    margin: 0 auto;         /* Zentriert den gesamten Block im Container */
 }
 
+#nested-list-special li,
 .custom-section-wrapper .nested-list li {
     position: relative;
-    padding-left: 20px;
-    margin-bottom: 10px;
+    padding-left: 25px;    /* Platz für den Punkt */
+    margin-bottom: 12px;
+    text-align: left;       /* Garantiert Linksbündigkeit */
 }
 
+#nested-list-special li::before,
 .custom-section-wrapper .nested-list li::before {
     content: "•";
-    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.5rem;
+    line-height: 1;
 }
 
 /* Zweite Ebene der Liste */
@@ -646,6 +675,10 @@ li::before {
 .custom-section-wrapper .frame-details p {
     margin-bottom: 10px;
     font-size: 1.1rem;
+}
+
+.frame-details p {
+    text-align: center;
 }
 
 /* Responsive Korrekturen */
