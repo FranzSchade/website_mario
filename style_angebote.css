@@ -464,9 +464,14 @@ body {
 /* FOOTER */
 footer {
     text-align: center;
+    margin-top: auto;
     padding: 15px;
     background: #336972E5;
     color: white;
+}
+
+.footer p {
+    text-align: center;
 }
 
 /* Container-Design */
@@ -526,6 +531,10 @@ p {
     margin-bottom: 15px;
     font-weight: 500;
     text-align: left;
+}
+
+footer p {
+    text-align: center !important;
 }
 
 /* Listen-Styling */

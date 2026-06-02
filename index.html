@@ -174,8 +174,6 @@
 
         <div class="testimonial-content">
 
-            <div id="stars"></div>
-
             <p id="testimonialText"></p>
 
             <h4 id="testimonialAuthor"></h4>
@@ -234,7 +232,6 @@
 
             const textElement = document.getElementById("testimonialText");
             const authorElement = document.getElementById("testimonialAuthor");
-            const starsElement = document.getElementById("stars");
 
             function showTestimonial(index) {
 
@@ -247,7 +244,6 @@
                     stars += "★";
                 }
 
-                starsElement.textContent = stars;
             }
 
             document.getElementById("nextBtn").addEventListener("click", () => {
