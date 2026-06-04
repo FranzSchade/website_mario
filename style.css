@@ -443,11 +443,12 @@ footer {
 }
 
 .profile-pic {
-    width: 450px;
-    height: 450px;
+    width: 550px;
+    height: 550px;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    object-position: center 20%;
 }
 
 
